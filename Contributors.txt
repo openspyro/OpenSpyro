@@ -1,0 +1,3 @@
+/u/openspyro -- Project creator, main programmer
+
+/u/TheVGripps -- Created models for gems, baskets, jars, trees, and an unlockable chest, along with associated LoDs.
