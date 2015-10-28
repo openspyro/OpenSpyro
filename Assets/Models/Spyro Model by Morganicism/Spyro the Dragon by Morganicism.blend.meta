@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 474edc52a32862943bb259ed63d45cb8
+timeCreated: 1446049705
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Back_Calf_L
+    100004: Back_Calf_R
+    100006: Back_Foot_L
+    100008: Back_Foot_R
+    100010: Back_Toe_L
+    100012: Back_Toe_R
+    100014: Crest
+    100016: eyes
+    100018: Front_Calf_L
+    100020: Front_Calf_R
+    100022: Front_Foot_L
+    100024: Front_Foot_R
+    100026: Front_Toe_L
+    100028: Front_Toe_R
+    100030: Head
+    100032: horns
+    100034: Jaw
+    100036: lower_teeth
+    100038: Neck
+    100040: Root
+    100042: spine
+    100044: Spine_01
+    100046: Spine_02
+    100048: spyro
+    100050: //RootNode
+    100052: Tail_01
+    100054: Tail_02
+    100056: Tail_02_001
+    100058: Tail_02_002
+    100060: tail_spike
+    100062: tongue
+    100064: upper_teeth
+    100066: Wing_01_L
+    100068: Wing_01_R
+    100070: Wing_02_L
+    100072: Wing_02_R
+    100074: Wing_03_L
+    100076: Wing_03_R
+    100078: wings
+    400000: Armature
+    400002: Back_Calf_L
+    400004: Back_Calf_R
+    400006: Back_Foot_L
+    400008: Back_Foot_R
+    400010: Back_Toe_L
+    400012: Back_Toe_R
+    400014: Crest
+    400016: eyes
+    400018: Front_Calf_L
+    400020: Front_Calf_R
+    400022: Front_Foot_L
+    400024: Front_Foot_R
+    400026: Front_Toe_L
+    400028: Front_Toe_R
+    400030: Head
+    400032: horns
+    400034: Jaw
+    400036: lower_teeth
+    400038: Neck
+    400040: Root
+    400042: spine
+    400044: Spine_01
+    400046: Spine_02
+    400048: spyro
+    400050: //RootNode
+    400052: Tail_01
+    400054: Tail_02
+    400056: Tail_02_001
+    400058: Tail_02_002
+    400060: tail_spike
+    400062: tongue
+    400064: upper_teeth
+    400066: Wing_01_L
+    400068: Wing_01_R
+    400070: Wing_02_L
+    400072: Wing_02_R
+    400074: Wing_03_L
+    400076: Wing_03_R
+    400078: wings
+    4300000: spyro
+    4300002: wings
+    4300004: tail_spike
+    4300006: spine
+    4300008: lower_teeth
+    4300010: tongue
+    4300012: upper_teeth
+    4300014: eyes
+    4300016: horns
+    4300018: Crest
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Crest
+    13700002: eyes
+    13700004: horns
+    13700006: lower_teeth
+    13700008: spine
+    13700010: spyro
+    13700012: tail_spike
+    13700014: tongue
+    13700016: upper_teeth
+    13700018: wings
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,3 +1,5 @@
 /u/openspyro -- Project creator, main programmer
 
 /u/TheVGripps -- Created models for gems, baskets, jars, trees, and an unlockable chest, along with associated LoDs.
+
+Morganicism -- (http://morganicism.deviantart.com/)  Created Spyro's character model and texture.
