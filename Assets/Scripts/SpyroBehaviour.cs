@@ -7,6 +7,12 @@ public class SpyroBehaviour : MonoBehaviour
 {
     public Camera myCamera;
 
+    private float walkRotSpeed = 720f;
+    private float walkSpeed = 5f;
+
+    private float chargeRotSpeed = 360f;
+    private float glideRotSpeed = 360f;
+
     public enum State
     {
         walking,
@@ -19,9 +25,9 @@ public class SpyroBehaviour : MonoBehaviour
     private delegate void StateMethod();
     private Dictionary<State, StateMethod> stateMethods = new Dictionary<State, StateMethod>();
 
-    private CharacterMotor motor;
+    private Vector3 leftStick;
 
-    //private Vector3 leftStick;
+    private CharacterMotor motor;
 
     //Events
 
@@ -50,9 +56,9 @@ public class SpyroBehaviour : MonoBehaviour
 
     //Misc methods
 
-    private Vector3 GetLeftStick()
+    private void UpdateLeftStick()
     {
-        //Returns the rotation the left analog stick is pointing Spyro in, adjusted for the camera angle.
+        //Updates the left stick vector, adjusted for the camera angle.
 
         //Temporarily level the camera
         Vector3 camRot = myCamera.transform.eulerAngles;
@@ -61,26 +67,36 @@ public class SpyroBehaviour : MonoBehaviour
         //Calculate the rotated stick vector
         Vector3 xComponent = Input.GetAxis("LeftStick_x") * myCamera.transform.right;
         Vector3 zComponent = Input.GetAxis("LeftStick_y") * myCamera.transform.forward;
-        Vector3 leftStick = xComponent + zComponent;
+        leftStick = xComponent + zComponent;
 
         //Restore the camera's rotation
         myCamera.transform.eulerAngles = camRot;
+    }
 
-        //Return the stick vector
-        return leftStick;
+    private void RotateWithStick(float rotSpeed)
+    {
+        //Rotates Spyro with a given speed towards the direciton pointed to by the left analog stick
+        if (leftStick.sqrMagnitude > 0.001)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(leftStick);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotSpeed * Time.deltaTime);
+        }
     }
 
     //State methods
 
     private void WhileWalking()
     {
-        //Send the input to the motor
-        Vector3 leftStick = GetLeftStick();
+        UpdateLeftStick();
+        RotateWithStick(walkRotSpeed);
 
-        if (leftStick.magnitude > 0.01f)
-        {
-            transform.forward = leftStick;
-        }
+        //Configure the motor
+        motor.movement.maxForwardSpeed = walkSpeed;
+        motor.movement.maxSidewaysSpeed = walkSpeed;
+
+        //Send input to the motor
+        motor.inputMoveDirection = transform.forward * leftStick.magnitude;
+        motor.inputJump = Input.GetButton("Jump");
     }
 
     private void WhileCharging()
