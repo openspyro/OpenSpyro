@@ -17,7 +17,7 @@ public class FollowCameraBehaviour : MonoBehaviour
     //Configuration
     private float followingHeight = 3;
     private float followingMoveSpeed = 10;      //The speed the camera moves at while in following mode.
-    private float followingDistance = 10;        //The distance the camera maintains from the target in following mode.
+    private float followingDistance = 15;        //The distance the camera maintains from the target in following mode.
 
     //Events
 
@@ -37,7 +37,6 @@ public class FollowCameraBehaviour : MonoBehaviour
     }
 
 
-
     //Misc methods
 
     private void MoveToTargetPos(float speed)
@@ -45,6 +44,7 @@ public class FollowCameraBehaviour : MonoBehaviour
         //Moves to the target pos.
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
     }
+
 
     //State methods
 
