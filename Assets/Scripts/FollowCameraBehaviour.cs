@@ -61,30 +61,36 @@ public class FollowCameraBehaviour : MonoBehaviour
 
     private void OrbitWithStick()
     {
-        //Orbit around the player with the right-stick
+        //Rotates the camera with the stick
 
         Vector3 diff = targetPos - target.transform.position;
+        diff = RotatePoint(diff, Input.GetAxis("RightStick_x") * followingOrbitSpeed * Time.deltaTime);
 
-        //Find the angle to the player
-        float angle = Mathf.Atan2(diff.z, diff.x) * Mathf.Rad2Deg;
+        targetPos = target.transform.position + diff;
+    }
 
-        //Find the distance to the player
-        //float dist = Mathf.Sqrt(diff.x * diff.x + diff.z * diff.z);
-        float dist = followingDistance;
+    private Vector3 RotatePoint(Vector3 v, float degrees)
+    {
+        //Rotates a 3D point around the origin, on the xz plane.
+        //Code taken and modified from http://answers.unity3d.com/questions/661383/whats-the-most-efficient-way-to-rotate-a-vector2-o.html
+        //Credit to DDP.
 
-        //Rotate the angle
-        angle += Input.GetAxis("RightStick_x") * followingOrbitSpeed * Time.deltaTime;
+        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
+        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
 
-        //Update the target position.
-        angle *= Mathf.Deg2Rad;
-        targetPos.x = target.transform.position.x + dist * Mathf.Cos(angle);
-        targetPos.z = target.transform.position.x + dist * Mathf.Sin(angle);
+        float tx = v.x;
+        float tz = v.z;
+        v.x = (cos * tx) - (sin * tz);
+        v.z = (sin * tx) + (cos * tz);
+
+        return v;
     }
 
     //State methods
 
     private void WhileFollowingPlayer()
     {
+
         //Orbit
         OrbitWithStick();
 
