@@ -63,10 +63,15 @@ public class FollowCameraBehaviour : MonoBehaviour
     {
         //Rotates the camera with the stick
 
-        Vector3 diff = targetPos - target.transform.position;
-        diff = RotatePoint(diff, Input.GetAxis("RightStick_x") * followingOrbitSpeed * Time.deltaTime);
+        float stickInput = Input.GetAxis("RightStick_x");
 
-        targetPos = target.transform.position + diff;
+        if (stickInput >= 0.01)
+        {
+            Vector3 diff = targetPos - target.transform.position;
+            diff = RotatePoint(diff, stickInput * followingOrbitSpeed * Time.deltaTime);
+
+            targetPos = target.transform.position + diff;
+        }
     }
 
     private Vector3 RotatePoint(Vector3 v, float degrees)
@@ -85,6 +90,7 @@ public class FollowCameraBehaviour : MonoBehaviour
 
         return v;
     }
+
 
     //State methods
 
