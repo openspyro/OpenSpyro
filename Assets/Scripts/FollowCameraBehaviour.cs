@@ -64,41 +64,35 @@ public class FollowCameraBehaviour : MonoBehaviour
         //Orbit around the player with the right-stick
 
         Vector3 diff = targetPos - target.transform.position;
-        diff.y = 0;
 
-        //Find the distance(ignoring y-value)
-        //float dist = diff.magnitude;
+        //Find the angle to the player
+        float angle = Mathf.Atan2(diff.z, diff.x) * Mathf.Rad2Deg;
+
+        //Find the distance to the player
+        //float dist = Mathf.Sqrt(diff.x * diff.x + diff.z * diff.z);
         float dist = followingDistance;
 
-        //Find the angle.
-        float angle = Mathf.Atan2(diff.z, diff.x) * Mathf.Rad2Deg;
-        //float angle = Vector2.Angle(Vector2.right, new Vector2(diff.x, diff.z));
-
-        //Increase the angle.
-        //angle += Input.GetAxis("RightStick_x") * followingOrbitSpeed * Time.deltaTime;
-
-        Debug.Log(angle);
+        //Rotate the angle
+        angle += Input.GetAxis("RightStick_x") * followingOrbitSpeed * Time.deltaTime;
 
         //Update the target position.
-        targetPos.x = target.transform.position.x + dist * Mathf.Cos(angle * Mathf.Deg2Rad);
-        targetPos.z = target.transform.position.x + dist * Mathf.Sin(angle * Mathf.Deg2Rad);
-
-        //TEMPORARY: Instantly move target pos
-        transform.position = targetPos;
+        angle *= Mathf.Deg2Rad;
+        targetPos.x = target.transform.position.x + dist * Mathf.Cos(angle);
+        targetPos.z = target.transform.position.x + dist * Mathf.Sin(angle);
     }
 
     //State methods
 
     private void WhileFollowingPlayer()
     {
-        //Update the target pos to maintain a constant distance from the player
-        //MaintainDistance(followingHeight, followingDistance);
-
         //Orbit
         OrbitWithStick();
 
+        //Update the target pos to maintain a constant distance from the player
+        MaintainDistance(followingHeight, followingDistance);
+
         //Move towards the target pos
-        //MoveToTargetPos(followingMoveSpeed);
+        MoveToTargetPos(followingMoveSpeed);
 
         //Look at the player
         transform.LookAt(target.transform);
