@@ -16,7 +16,7 @@ public class FollowCameraBehaviour : MonoBehaviour
 
     //Configuration
     private float followingHeight = 3;
-    private float followingMoveSpeed = 10;          //The speed the camera moves at while in following mode.
+    private float followingMoveSpeed = 100;          //The speed the camera moves at while in following mode.
     private float followingDistance = 15;           //The distance the camera maintains from the target in following mode.
     private float followingOrbitSpeed = 360f;       //The speed the camera rotates with the right analog stick.
 
@@ -65,7 +65,7 @@ public class FollowCameraBehaviour : MonoBehaviour
 
         float stickInput = Input.GetAxis("RightStick_x");
 
-        if (stickInput >= 0.01)
+        if (Mathf.Abs(stickInput) >= 0.01)
         {
             Vector3 diff = targetPos - target.transform.position;
             diff = RotatePoint(diff, stickInput * followingOrbitSpeed * Time.deltaTime);
